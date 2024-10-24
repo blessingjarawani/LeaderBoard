@@ -3,6 +3,7 @@ using LeaderBoard.Infrastructure.Queries;
 using LeaderBoard.Infrastructure.Queries.QueryHandlers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace LeaderBoard.WebApi.Controllers
 {
@@ -19,6 +20,8 @@ namespace LeaderBoard.WebApi.Controllers
 
         // Commands (write operations)
         [HttpPost("[action]")]
+        [SwaggerOperation(Summary = "Create or Update a Team", Description = "Creates a new team or updates an existing team.")]
+        [SwaggerResponse(200, "Team successfully created or updated")]
         public async Task<IActionResult> CreateOrUpdateTeam([FromQuery] CreateTeamCommand teamCommand)
         {
             var team = await _mediator.Send(teamCommand);
