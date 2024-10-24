@@ -1,0 +1,6 @@
+@LeaderBoard.WebApi_HostAddress = http://localhost:5272
+
+GET {{LeaderBoard.WebApi_HostAddress}}/teamsController/
+Accept: application/json
+
+###
